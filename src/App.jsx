@@ -1,15 +1,14 @@
-import { ReactDOM } from "react-dom/client"
-import { BrowserRouter } from "react-router-dom"
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <BrowserRouter>
-    <h1>Hello World</h1>
-    
+      <Routes>
+        <Route path="/" element={<h1>Hello Router</h1>} />
+      </Routes>
     </BrowserRouter>
-
-  )
+  );
 }
 
-export default App
+export default App;
