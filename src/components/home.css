@@ -1,0 +1,35 @@
+.homeMain {
+  background-image: url("../assets/mountain.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+}
+
+.overlayColor {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeInfo {
+  display: flex;
+  color: aliceblue;
+  flex-direction: column;
+  text-align: left;
+  gap: 20px;
+  padding: 20px;
+}
+
+.lineOne {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  
+}
+
+.lineTwo{
+    margin-bottom: 30px;
+}
