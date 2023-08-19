@@ -1,0 +1,27 @@
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+}
+
+.aboutBanner {
+    height: 40vh;
+}
+
+.title, .paraOne, .paraTwo, .exploreVans {
+    padding: 25px;
+    margin-top: -10px;
+}
+
+.exploreVans{
+    background-color: rgb(243, 168, 107);
+    margin: 25px;
+}
+
+.exploreVans > h3 {
+    margin-top: -1px;
+}
+
+.exploreVans > button {
+    color:aliceblue
+}

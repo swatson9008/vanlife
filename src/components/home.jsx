@@ -1,7 +1,9 @@
 import './home.css'
+import Footer from '../components/footer'
 
 export default function Home() {
     return (
+      <>
       <div className='homeMain'>
         <div className='overlayColor'>
           <div className='homeInfo'> 
@@ -16,5 +18,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
+      </>
     )
   }
