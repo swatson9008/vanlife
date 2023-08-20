@@ -1,5 +1,5 @@
 import './about.css'
-import vanAbout from '../assets/vanabout.jpg'
+import vanAbout from '../assets/vanabout.png'
 import Footer from '../components/footer'
 
 export default function About() {
