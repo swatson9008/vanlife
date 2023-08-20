@@ -1,11 +1,12 @@
-main {
+.aboutMain {
     display: flex;
     flex-direction: column;
     background-color: antiquewhite;
 }
 
 .aboutBanner {
-    height: 40vh;
+    width: 100%;
+    height: auto;
 }
 
 .title, .paraOne, .paraTwo, .exploreVans {
