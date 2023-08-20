@@ -5,7 +5,7 @@ export default function Navbar(){
 
     return(
       <div className="NavBar">
-        <span>#VANLIFE</span>
+        <span><Link to="/">#VANLIFE</Link></span>
         <div className="navLinks"><Link to="/">Home</Link>
         <Link to="/about">About</Link></div>
       </div>

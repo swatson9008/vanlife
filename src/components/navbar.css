@@ -13,13 +13,17 @@
     font-size: 24px;
 }
 
+span > a {
+    color: black;
+}
+
 .navLinks {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
-a {
+.navLinks > a {
     color: rgb(90, 90, 90);
     font-weight: bold;
 }
