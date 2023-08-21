@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Footer from "./footer";
 
 export default function Vans() {
   const [vanData, setVanData] = useState(null);
@@ -11,6 +12,7 @@ export default function Vans() {
   }, []);
 
   return (
+    <>
     <main className="vanMain">
       <div className="vanData">
         {vanData ? (
@@ -28,5 +30,7 @@ export default function Vans() {
         )}
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
