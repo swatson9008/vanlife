@@ -2,7 +2,7 @@
   background-image: url("../assets/mountain.jpeg");
   background-size: cover;
   background-position: center;
-  height: 70vh;
+  height: calc(100vh - 12.875rem);
 }
 
 .overlayColor {
