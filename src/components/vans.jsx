@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Footer from "./footer";
+import './van.css'
 
 export default function Vans() {
   const [vanData, setVanData] = useState(null);
@@ -14,15 +15,15 @@ export default function Vans() {
   return (
     <>
     <main className="vanMain">
+        <h2>Explore our van options</h2>
       <div className="vanData">
         {vanData ? (
           vanData.map((van) => (
-            <div key={van.id}>
+            <div key={van.id} className="vanItem">
               <p><img src={van.imageUrl} alt=""/></p>
-              <p>{van.name}</p>
-              <p>{van.price}</p>
-              <p>{van.type}</p>
-              <p>{van.description}</p>
+              <p className="vanName">{van.name}</p>
+              <p className="vanPrice">${van.price}/day</p>
+              <p className={`vanType ${van.type}`}><button>{van.type}</button></p>
             </div>
           ))
         ) : (

@@ -1,0 +1,40 @@
+body {
+    background-color: antiquewhite;
+}
+
+
+
+.vanData {
+    display: grid;
+    justify-items: center;
+    gap: 30px;
+    margin-top: 57px;
+}
+
+.vanItem {
+    max-width: 30vw;
+}
+
+.vanItem img {
+    max-width: 100%;
+}
+
+.vanType button {
+    color: antiquewhite;
+}
+
+
+@media (min-width: 800px){
+    .vanMain {
+    margin: 25px
+}
+    .vanData {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+}
+
+@media (max-width: 799px){
+    .vanData {
+    grid-template-columns: 1fr 1fr;
+}
+}
