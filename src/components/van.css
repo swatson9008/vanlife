@@ -18,6 +18,10 @@ body {
     max-width: 30vw;
 }
 
+.vanName {
+    font-weight: bold;
+}
+
 .vanItem img {
     max-width: 100%;
     border-radius: 10px;
