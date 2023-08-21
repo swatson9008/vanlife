@@ -24,6 +24,7 @@ body {
 
 .vanItem img {
     max-width: 100%;
+    max-height: 100%;
     border-radius: 10px;
 }
 
@@ -39,7 +40,10 @@ body {
     background-color: rgb(5, 73, 11);
 }
 
-
+a {
+  text-decoration: none;
+  color: #333; 
+}
 
 @media (min-width: 800px){
     .vanMain {

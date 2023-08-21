@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 import Footer from "./footer";
-import './van.css'
+import './vans.css'
 
 export default function Vans() {
   const [vanData, setVanData] = useState(null);
@@ -19,12 +21,12 @@ export default function Vans() {
       <div className="vanData">
         {vanData ? (
           vanData.map((van) => (
-            <div key={van.id} className="vanItem">
+            <Link to={`/vans/${van.id}`}><div key={van.id} className="vanItem">
               <p><img src={van.imageUrl} alt=""/></p>
               <p className="vanName">{van.name}</p>
               <p className="vanPrice">${van.price}/day</p>
               <p className={`vanType ${van.type}`}><button>{van.type}</button></p>
-            </div>
+            </div></Link>
           ))
         ) : (
           <p>Loading....</p>

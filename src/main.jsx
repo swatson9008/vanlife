@@ -4,6 +4,7 @@ import Home from './components/home';
 import About from './components/about';
 import Navbar from './components/navbar';
 import Vans from './components/vans'
+import VanDetail from './components/vanDetail';
 import './index.css'
 import "./server"
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
     </BrowserRouter>
   )
