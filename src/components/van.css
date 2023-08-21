@@ -2,13 +2,16 @@ body {
     background-color: antiquewhite;
 }
 
-
+.vanMain > h2 {
+    margin-left: 20px;
+}
 
 .vanData {
     display: grid;
     justify-items: center;
     gap: 30px;
     margin-top: 57px;
+    margin-bottom: 10px;
 }
 
 .vanItem {
@@ -17,11 +20,21 @@ body {
 
 .vanItem img {
     max-width: 100%;
+    border-radius: 10px;
 }
 
 .vanType button {
     color: antiquewhite;
 }
+
+.vanType.simple button {
+    background-color: rgb(204, 101, 5);
+}
+
+.vanType.rugged button {
+    background-color: rgb(5, 73, 11);
+}
+
 
 
 @media (min-width: 800px){
