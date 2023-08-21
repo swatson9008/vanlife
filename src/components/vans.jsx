@@ -29,7 +29,7 @@ export default function Vans() {
             </div></Link>
           ))
         ) : (
-          <p>Loading....</p>
+          <p>Loading your vans!</p>
         )}
       </div>
     </main>
