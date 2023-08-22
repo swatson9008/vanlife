@@ -21,7 +21,7 @@ export default function VanDetail() {
     <div className="vanContainer">
       <h2>{vanData.name}</h2>
       <img src={vanData.imageUrl} alt=""/>
-      <p><button className={`vanType ${vanData.type}`}>{vanData.type}</button></p>
+      <p><button className={`vanTypeD ${vanData.type}`}>{vanData.type}</button></p>
       <p className="vanPrice">{`$${vanData.price}/day`}</p>
       <p>{vanData.description}</p><br />
       <button className="rentVan">Rent this van</button>

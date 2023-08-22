@@ -6,18 +6,15 @@
   max-height: 600px; 
 }
 
-.vanContainer img {
-}
-
-.vanType {
+.vanTypeD {
   color: antiquewhite;
 }
 
-.vanType.simple {
+.vanTypeD.simple {
   background-color: rgb(204, 101, 5);
 }
 
-.vanType.rugged {
+.vanTypeD.rugged {
   background-color: rgb(5, 73, 11);
 }
 
