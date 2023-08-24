@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
-import Footer from "./footer";
 import './vans.css'
 
 export default function Vans() {
@@ -33,7 +32,6 @@ export default function Vans() {
         )}
       </div>
     </main>
-    <Footer />
     </>
   );
 }

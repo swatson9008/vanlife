@@ -1,6 +1,5 @@
 import './about.css'
 import vanAbout from '../assets/vanabout.png'
-import Footer from '../components/footer'
 
 export default function About() {
     return (
@@ -16,7 +15,6 @@ export default function About() {
           <button>Explore our vans</button>
         </div>
       </main>
-      <Footer />
       </>
     )
   }
