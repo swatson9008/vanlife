@@ -1,4 +1,6 @@
 export default function Income(){
 
-    return()
+    return(
+        <h1>sample</h1>
+    )
 }

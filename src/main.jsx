@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from './pages/home';
 import About from './pages/about';
 import Vans from './pages/vans/vans'
@@ -8,9 +8,11 @@ import Layout from './components/layout';
 import Dashboard from './pages/host/dashboard';
 import Income from './pages/host/income';
 import Reviews from './pages/host/reviews';
+import HostLayout from './components/hostlayout';
 import './index.css'
 import "./server"
 
+// eslint-disable-next-line react-refresh/only-export-components
 function App() {
   return (
     <BrowserRouter>
@@ -20,9 +22,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/vans" element={<Vans />} />
           <Route path="/vans/:id" element={<VanDetail />} />
-          <Route path="/host" element={<Dashboard />} />
-          <Route path="/host/income" element={<Income />} />
-          <Route path="/host/reviews" element={<Reviews />} />
+          <Route path="/host" element={<HostLayout />}>
+            <Route path="/host" element={<Dashboard />} />
+            <Route path="/host/income" element={<Income />} />
+            <Route path="/host/reviews" element={<Reviews />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

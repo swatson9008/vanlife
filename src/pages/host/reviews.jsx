@@ -1,4 +1,6 @@
 export default function Reviews(){
 
-    return()
+    return(
+        <h1>sample</h1>
+    )
 }
