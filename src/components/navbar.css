@@ -21,7 +21,7 @@ span > a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    justify-items: end;
+    justify-items: center;
 }
 
 .navLinks > a {

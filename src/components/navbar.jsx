@@ -7,9 +7,9 @@ export default function Navbar(){
       <div className="NavBar">
         <span><Link to="/">#VANLIFE</Link></span>
         <div className="navLinks">
+          <Link to="/host">Host</Link>
           <Link to="/about">About</Link>
           <Link to="/vans">Vans</Link>
-          <Link to="/host">Host</Link>
         </div>
       </div>
     )
