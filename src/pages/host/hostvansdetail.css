@@ -1,0 +1,28 @@
+.hostBack {
+    margin-top: 25px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.vanHostContainer {
+    padding: 25px;
+    background-color: white;
+    margin: 15px;
+}
+
+.vanTop {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.VanDImg {
+    height: 200px;
+}
+
+.navHostBar {
+    display: flex;
+    gap: 30px;
+    font-weight: bolder;
+    margin-top: 25px;
+}
