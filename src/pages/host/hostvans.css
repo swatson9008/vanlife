@@ -1,0 +1,27 @@
+.vanHostMain {
+  margin: 20px;
+}
+
+.vanHostData {
+  display: grid;
+  grid-gap: 10px;
+}
+
+
+.vanHostItem img {
+  height: 100px;
+  border-radius: 8px;
+}
+
+.vanHostItem  {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+}
+
+.vanHostName{
+    font-weight: bold;
+    font-size: 18px;
+}
