@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, Link } from "react-router-dom";
 import './hostvansdetail.css'
 
 export default function VanHostDetail() {
@@ -13,6 +13,10 @@ export default function VanHostDetail() {
       .catch((error) => console.error("Error fetching data:", error));
   }, [params.id]);
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   if (!vanData) {
     return <p className="loadingText">Loading your vans!</p>;
   }
@@ -20,7 +24,7 @@ export default function VanHostDetail() {
   return (
     <>
       <div className="hostBack">
-        ← <span>Back to all vans</span>
+        ← <span><Link to="/host/vans">Back to all vans</Link></span>
       </div>
       <div className="vanHostContainer">
         <div className="vanTop">
@@ -33,8 +37,10 @@ export default function VanHostDetail() {
         <div className="navHostBar">
         <NavLink to="/">Details</NavLink><NavLink to="/">Pricing</NavLink><NavLink to="/">Photos</NavLink>
         </div>
-        <p>Description: {vanData.description}</p>
-        <br />
+        <p className="infoBoxes"><span>Name:</span> {vanData.name}</p>
+        <p className="infoBoxes"><span>Category:</span> {capitalizeFirstLetter(vanData.type)}</p>
+        <p className="infoBoxes"><span>Description:</span> {vanData.description}</p>
+        <p className="infoBoxes"><span>Visibility:</span> Public</p>
       </div>
     </>
   );

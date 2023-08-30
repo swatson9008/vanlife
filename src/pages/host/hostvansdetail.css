@@ -26,3 +26,7 @@
     font-weight: bolder;
     margin-top: 25px;
 }
+
+.infoBoxes > span {
+    font-weight: bold;
+}
