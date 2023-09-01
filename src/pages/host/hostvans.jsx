@@ -13,7 +13,7 @@ export default function Vans() {
       .then((data) => setVanData(data.vans))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
+  
   return (
     <>
     <main className="vanHostMain">
