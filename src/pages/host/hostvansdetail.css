@@ -27,6 +27,24 @@
     margin-top: 25px;
 }
 
-.infoBoxes > span {
+.infoBoxes {
     font-weight: bold;
+}
+
+.vanHostInfoMain {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info1 {
+    margin-top: 15px;
+}
+
+.vanHostInfoPhotos img {
+    width: 250px;
+}
+
+.vanHostInfoPhotos {
+    margin-top: 15px;
 }
