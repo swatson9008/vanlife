@@ -32,7 +32,7 @@ export default function VanHostDetail() {
       <div className="hostBack">
         ←{" "}
         <span>
-          <Link to=".." relative="path">
+          <Link to="/host/vans" relative="path">
             Back to all vans
           </Link>
         </span>
