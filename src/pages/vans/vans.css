@@ -6,6 +6,25 @@ body {
     margin-left: 20px;
 }
 
+.topFilters {
+    margin-left: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.filterButtons {
+    background-color: rgb(252, 209, 150);
+    border-radius: 5px;
+    width: auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+.clearF {
+    margin-left: 5px;
+}
+
 .vanData {
     display: grid;
     justify-items: center;

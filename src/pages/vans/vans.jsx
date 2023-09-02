@@ -1,10 +1,17 @@
 /* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
-import './vans.css'
+import { Link, useSearchParams } from "react-router-dom";
+import "./vans.css";
 
 export default function Vans() {
   const [vanData, setVanData] = useState(null);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type");
+
+  const displayedVans = typeFilter
+    ? vanData.filter((van) => van.type.toLowerCase() === typeFilter)
+    : vanData;
 
   useEffect(() => {
     fetch("/api/vans")
@@ -15,23 +22,44 @@ export default function Vans() {
 
   return (
     <>
-    <main className="vanMain">
+      <main className="vanMain">
         <h2>Explore our van options</h2>
-      <div className="vanData">
-        {vanData ? (
-          vanData.map((van) => (
-            <Link to={`/vans/${van.id}`}><div key={van.id} className="vanItem">
-              <p><img src={van.imageUrl} alt=""/></p>
-              <p className="vanName">{van.name}</p>
-              <p className="vanPrice">${van.price}/day</p>
-              <p className={`vanType ${van.type}`}><button>{van.type}</button></p>
-            </div></Link>
-          ))
-        ) : (
-          <p>Loading your vans!</p>
-        )}
-      </div>
-    </main>
+        <div className="topFilters">
+          <Link to="?type=simple">
+            <button className="filterButtons">Simple</button>
+          </Link>
+          <Link to="?type=luxury">
+            <button className="filterButtons">Luxury</button>
+          </Link>
+          <Link to="?type=rugged">
+            <button className="filterButtons">Rugged</button>
+          </Link>
+          <Link to=".">
+            <span className="clearF">Clear Filters</span>
+          </Link>
+        </div>
+
+        <div className="vanData">
+          {displayedVans ? (
+            displayedVans.map((van) => (
+              <Link to={`/vans/${van.id}`} key={van.id}>
+                <div className="vanItem">
+                  <p>
+                    <img src={van.imageUrl} alt="" />
+                  </p>
+                  <p className="vanName">{van.name}</p>
+                  <p className="vanPrice">${van.price}/day</p>
+                  <p className={`vanType ${van.type}`}>
+                    <button>{van.type}</button>
+                  </p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>Loading your vans!</p>
+          )}
+        </div>
+      </main>
     </>
   );
 }
