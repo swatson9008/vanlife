@@ -23,6 +23,7 @@ body {
 
 .clearF {
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .vanData {
