@@ -21,6 +21,22 @@ body {
     font-size: 14px;
 }
 
+.selected {
+    color:antiquewhite;
+}
+
+.simple.selected {
+    background-color: rgb(204, 101, 5);
+}
+
+.luxury.selected {
+    background-color: #1a1a1a;
+}
+
+.rugged.selected {
+    background-color:rgb(5, 73, 11);
+}
+
 .clearF {
     margin-left: 5px;
     cursor: pointer;

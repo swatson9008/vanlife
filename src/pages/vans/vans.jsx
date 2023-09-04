@@ -37,19 +37,19 @@ export default function Vans() {
         <h2>Explore our van options</h2>
         <div className="topFilters">
           <button
-            className="filterButtons"
+            className={`filterButtons simple ${typeFilter === "simple" ? "selected" : ""}`}
             onClick={() => handleFilterChange("type", "simple")}
           >
             Simple
           </button>
           <button
-            className="filterButtons"
+            className={`filterButtons luxury ${typeFilter === "luxury" ? "selected" : ""}`}
             onClick={() => handleFilterChange("type", "luxury")}
           >
             Luxury
           </button>
           <button
-            className="filterButtons"
+            className={`filterButtons rugged ${typeFilter === "rugged" ? "selected" : ""}`}
             onClick={() => handleFilterChange("type", "rugged")}
           >
             Rugged
@@ -69,7 +69,7 @@ export default function Vans() {
         <div className="vanData">
           {displayedVans ? (
             displayedVans.map((van) => (
-              <Link to={`/vans/${van.id}`} key={van.id}>
+              <Link to={`/${van.id}`} key={van.id}>
                 <div className="vanItem">
                   <p>
                     <img src={van.imageUrl} alt="" />
