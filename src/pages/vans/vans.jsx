@@ -20,6 +20,17 @@ export default function Vans() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
+  function handleFilterChange(key, value) {
+    setSearchParams(prevParams => {
+        if (value === null) {
+            prevParams.delete(key)
+        } else {
+            prevParams.set(key, value)
+        }
+        return prevParams
+    })
+}
+
   return (
     <>
       <main className="vanMain">
@@ -27,28 +38,32 @@ export default function Vans() {
         <div className="topFilters">
           <button
             className="filterButtons"
-            onClick={() => setSearchParams({ type: "simple" })}
+            onClick={() => handleFilterChange("type", "simple")}
           >
             Simple
           </button>
           <button
             className="filterButtons"
-            onClick={() => setSearchParams({ type: "luxury" })}
+            onClick={() => handleFilterChange("type", "luxury")}
           >
             Luxury
           </button>
           <button
             className="filterButtons"
-            onClick={() => setSearchParams({ type: "rugged" })}
+            onClick={() => handleFilterChange("type", "rugged")}
           >
             Rugged
           </button>
-          <span
-            className="clearF"
-            onClick={() => setSearchParams({ type: "" })}
-          >
-            Clear Filters
-          </span>
+          {typeFilter !== null ? (
+            <span
+              className="clearF"
+              onClick={() => handleFilterChange("type", null)}
+            >
+              Clear Filters
+            </span>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="vanData">
