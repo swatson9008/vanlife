@@ -14,6 +14,7 @@ import HostVanDetail from './pages/host/hostvansdetail';
 import HostVanPricing from './pages/host/hostvanspricing'; 
 import HostVanPhotos from './pages/host/hostvansphotos'; 
 import HostVanInfo from './pages/host/hostvaninfo';
+import NotFound from './pages/notfound';
 import './index.css'
 import "./server"
 
@@ -22,7 +23,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
+        <Route path='/' element={<Layout />}>
+          <Route path="*" element={<NotFound />}/>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
