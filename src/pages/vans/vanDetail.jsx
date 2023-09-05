@@ -33,7 +33,7 @@ export default function VanDetail() {
         ←{" "}
         <span>
         <Link to={`..${search}`} relative="path">
-            Back to all {spliceType(search) === null ? 'all' : spliceType(search) } vans
+            Back to all {spliceType(search) === null ? '' : spliceType(search) } vans
           </Link>
         </span>
       </div>
