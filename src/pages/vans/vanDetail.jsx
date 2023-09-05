@@ -7,6 +7,14 @@ export default function VanDetail() {
   const location = useLocation()
   const [vanData, setVanData] = useState(null);
   const search = location.state?.search || "";
+  function spliceType (search) {
+    const parts = search.split('=');
+    if (parts.length === 2) {
+      return parts[1];
+    } else {
+      return null;
+    }
+  }
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -25,7 +33,7 @@ export default function VanDetail() {
         ←{" "}
         <span>
         <Link to={`..${search}`} relative="path">
-            Back to all vans
+            Back to all {spliceType(search) === null ? 'all' : spliceType(search) } vans
           </Link>
         </span>
       </div>
