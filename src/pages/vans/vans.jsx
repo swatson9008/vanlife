@@ -9,9 +9,11 @@ export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
 
-  const displayedVans = typeFilter
-    ? vanData.filter((van) => van.type.toLowerCase() === typeFilter)
-    : vanData;
+  const displayedVans = vanData
+    ? typeFilter
+      ? vanData.filter((van) => van.type.toLowerCase() === typeFilter)
+      : vanData
+    : [];
 
   useEffect(() => {
     fetch("/api/vans")
@@ -29,6 +31,10 @@ export default function Vans() {
         }
         return prevParams
     })
+}
+
+if (vanData === null) {
+  return <p className="loadingText">Loading your vans!</p>;
 }
 
   return (
@@ -67,9 +73,9 @@ export default function Vans() {
         </div>
 
         <div className="vanData">
-          {displayedVans ? (
+          {displayedVans.length > 0 ? (
             displayedVans.map((van) => (
-              <Link to={`/${van.id}`} key={van.id}>
+              <Link to={van.id} state={{ search: `?${searchParams.toString()}` }} key={van.id}>
                 <div className="vanItem">
                   <p>
                     <img src={van.imageUrl} alt="" />
@@ -83,7 +89,7 @@ export default function Vans() {
               </Link>
             ))
           ) : (
-            <p>Loading your vans!</p>
+            <p>No vans match your criteria.</p>
           )}
         </div>
       </main>
