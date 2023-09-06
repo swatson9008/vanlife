@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getVans } from "../../../api";
 import "./vans.css";
 
 export default function Vans() {
   const [vanData, setVanData] = useState(null);
-
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
+  const [loading, setLoading] = useState(false)
 
   const displayedVans = vanData
     ? typeFilter
@@ -15,12 +16,17 @@ export default function Vans() {
       : vanData
     : [];
 
-  useEffect(() => {
-    fetch("/api/vans")
-      .then((response) => response.json())
-      .then((data) => setVanData(data.vans))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+
+    useEffect(() => {
+      async function loadVans() {
+          setLoading(true)
+          const data = await getVans()
+          setVanData(data)
+          setLoading(false)
+      }
+      
+      loadVans()
+  }, [])
 
   function handleFilterChange(key, value) {
     setSearchParams(prevParams => {
