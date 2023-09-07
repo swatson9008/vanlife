@@ -9,6 +9,7 @@ export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const displayedVans = vanData
     ? typeFilter
@@ -20,11 +21,17 @@ export default function Vans() {
     useEffect(() => {
       async function loadVans() {
           setLoading(true)
-          const data = await getVans()
-          setVanData(data)
-          setLoading(false)
+          try {
+              const data = await getVans()
+              setVanData(data)
+
+          } catch (err) {
+              setError(err)
+          } finally {
+              setLoading(false)
+          }
       }
-      
+
       loadVans()
   }, [])
 
@@ -41,6 +48,10 @@ export default function Vans() {
 
 if (loading) {
   return <p className="loadingText">Loading your vans!</p>;
+}
+
+if (error) {
+  return <p>There was an error: {error}</p>
 }
 
   return (
