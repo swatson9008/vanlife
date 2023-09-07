@@ -22,7 +22,7 @@ export default function VanHostDetail() {
       setLoading(true);
       try {
         const data = await getHostVans(id);
-        setCurrentVan(data);
+        setCurrentVan(data[0]);
       } catch (err) {
         setError(err);
       } finally {
@@ -40,9 +40,9 @@ export default function VanHostDetail() {
     .catch((error) => console.error("Error fetching data:", error));
 }, [params.id]);*/
 
-  /*const capitalizeFirstLetter = (string) => {
+  const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  };*/
+  }
 
   if (!currentVan) {
     return <p className="loadingText">Loading your vans!</p>;
