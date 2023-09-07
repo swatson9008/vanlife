@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams, NavLink, Link, Outlet } from "react-router-dom";
+import { getHostVans } from "../../../api";
+
 import "./hostvansdetail.css";
 
 export default function VanHostDetail() {
   const params = useParams();
-  const [vanData, setVanData] = useState(null);
+  const [currentVan, setCurrentVan] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { id } = useParams();
 
   const activeStyles = {
     fontWeight: "bold",
@@ -13,17 +18,33 @@ export default function VanHostDetail() {
   };
 
   useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((response) => response.json())
-      .then((data) => setVanData(data.vans[0]))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [params.id]);
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getHostVans(id);
+        setCurrentVan(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-  const capitalizeFirstLetter = (string) => {
+    loadVans();
+  }, [id]);
+
+  /*useEffect(() => {
+  fetch(`/api/host/vans/${params.id}`)
+    .then((response) => response.json())
+    .then((data) => setCurrentVan(data.currentVan[0]))
+    .catch((error) => console.error("Error fetching data:", error));
+}, [params.id]);*/
+
+  /*const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  };*/
 
-  if (!vanData) {
+  if (!currentVan) {
     return <p className="loadingText">Loading your vans!</p>;
   }
 
@@ -39,19 +60,20 @@ export default function VanHostDetail() {
       </div>
       <div className="vanHostContainer">
         <div className="vanTop">
-          <img src={vanData.imageUrl} alt="" className="VanDImg" />
+          <img src={currentVan.imageUrl} alt="" className="VanDImg" />
           <div className="vanRightD">
-            <button className={`vanTypeD ${vanData.type}`}>
-              {vanData.type}
+            <button className={`vanTypeD ${currentVan.type}`}>
+              {currentVan.type}
             </button>
-            <h3 className="vanHostDName">{vanData.name}</h3>
-            <div className="vanHostPrice">${vanData.price}/day</div>
+            <h3 className="vanHostDName">{currentVan.name}</h3>
+            <div className="vanHostPrice">${currentVan.price}/day</div>
           </div>
         </div>
         <div className="navHostBar">
           <NavLink
             to="."
-            end style={({ isActive }) => (isActive ? activeStyles : null)}
+            end
+            style={({ isActive }) => (isActive ? activeStyles : null)}
           >
             Details
           </NavLink>
@@ -70,9 +92,7 @@ export default function VanHostDetail() {
             Photos
           </NavLink>
         </div>
-        <Outlet 
-            context={[vanData]}
-        />
+        <Outlet context={[currentVan]} />
       </div>
     </>
   );
