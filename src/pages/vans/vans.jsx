@@ -51,7 +51,7 @@ if (loading) {
 }
 
 if (error) {
-  return <p>There was an error: {error}</p>
+  return <p>There was an error: {error.message}</p>
 }
 
   return (
