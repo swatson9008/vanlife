@@ -39,7 +39,7 @@ export default function Vans() {
     })
 }
 
-if (vanData === null) {
+if (loading) {
   return <p className="loadingText">Loading your vans!</p>;
 }
 
