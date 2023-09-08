@@ -13,6 +13,8 @@ export default function Login() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location.state?.from || "/host";
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,12 +24,7 @@ export default function Login() {
         console.log(data);
         setError(null);
         localStorage.setItem("loggedin", true);
-
-        if (location.state?.location) {
-          navigate(location.state.location, { replace: true });
-        } else {
-          navigate("/host", { replace: true });
-        }
+        navigate(from, { replace: true })
       })
       .catch((error) => {
         console.error(error);
