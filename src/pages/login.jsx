@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useState } from "react"
 import './login.css'
 
 export default function Login() {
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" })
-
+    const location = useLocation();
     function handleSubmit(e) {
         e.preventDefault()
         console.log(loginFormData)
@@ -20,6 +20,7 @@ export default function Login() {
 
     return (
         <div className="loginMain">
+             {location.state.message != null && <div>{location.state.message}</div>}
             <h1>Sign in to your account</h1>
             <form onSubmit={handleSubmit} className="loginForm">
                 <input
