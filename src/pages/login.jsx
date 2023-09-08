@@ -42,7 +42,7 @@ export default function Login() {
         <h3 className="logInFirst">{location.state.message}</h3>
       )}
       <h1>Sign in to your account</h1>
-      {error && <h3 className="errorState">{error}</h3>}
+      {error?.message && <h3 className="errorState">{error?.message}</h3>}
       <form onSubmit={handleSubmit} className="loginForm">
         <input
           name="email"
