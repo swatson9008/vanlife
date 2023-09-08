@@ -1,3 +1,4 @@
+// Login.js
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../api";
@@ -12,6 +13,7 @@ export default function Login() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+
   function handleSubmit(e) {
     e.preventDefault();
     setStatus("submitting");
@@ -19,8 +21,13 @@ export default function Login() {
       .then((data) => {
         console.log(data);
         setError(null);
-        localStorage.setItem("loggedin", true)
-        navigate("/host", { replace: true })
+        localStorage.setItem("loggedin", true);
+
+        if (location.state?.location) {
+          navigate(location.state.location, { replace: true });
+        } else {
+          navigate("/host", { replace: true });
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -62,7 +69,8 @@ export default function Login() {
           value={loginFormData.password}
         />
         <button disabled={status === "submitting"}>
-          {status === "submitting" ? "Logging in..." : "Log in"}</button>
+          {status === "submitting" ? "Logging in..." : "Log in"}
+        </button>
       </form>
     </div>
   );
