@@ -9,6 +9,10 @@ export default function Navbar() {
     color: "#161616",
   };
 
+  function fakeLogOut() {
+    localStorage.removeItem("loggedin")
+}
+
   return (
     <div className="NavBar">
       <span>
@@ -36,6 +40,7 @@ export default function Navbar() {
         <Link to="login" className="loginLink">
           <img src={avatarIcon} className="loginIcon" />
         </Link>
+        <button className="logOut" onClick={fakeLogOut}>X</button>
       </div>
     </div>
   );

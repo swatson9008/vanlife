@@ -19,7 +19,7 @@ span > a {
 
 .navLinks {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 10px;
     justify-items: center;
     align-items: center;
@@ -33,4 +33,9 @@ span > a {
 a:hover {
     text-decoration: underline;
     color: black;
+}
+
+.logOut {
+    background-color: rgb(231, 231, 231);
+    padding: 15px;
 }
