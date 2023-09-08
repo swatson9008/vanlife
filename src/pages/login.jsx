@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { loginUser } from "../../api";
 import "./login.css";
 
 export default function Login() {
@@ -10,7 +11,10 @@ export default function Login() {
   const location = useLocation();
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(loginFormData);
+    loginUser(loginFormData)
+    .then((result) => {
+      console.log(result);
+    })
   }
 
   function handleChange(e) {
@@ -23,7 +27,7 @@ export default function Login() {
 
   return (
     <div className="loginMain">
-      {location.state.message != null && <h3 className="logInFirst">{location.state.message}</h3>}
+      {location.state?.message && <h3 className="logInFirst">{location.state.message}</h3>}
       <h1>Sign in to your account</h1>
       <form onSubmit={handleSubmit} className="loginForm">
         <input
