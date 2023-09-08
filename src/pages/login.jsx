@@ -20,7 +20,7 @@ export default function Login() {
 
     return (
         <div className="loginMain">
-             {location.state.message != null && <div>{location.state.message}</div>}
+             {location.state.message != null && <h3>{location.state.message}</h3>}
             <h1>Sign in to your account</h1>
             <form onSubmit={handleSubmit} className="loginForm">
                 <input
