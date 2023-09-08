@@ -18,6 +18,12 @@ export default function Navbar(){
           style={({isActive}) => isActive ? activeStyle : null }>About</NavLink>
           <NavLink to="/vans"
           style={({isActive}) => isActive ? activeStyle : null }>Vans</NavLink>
+          <Link to="login" className="login-link">
+                    <img 
+                        src="" 
+                        className="login-icon"
+                    />
+                </Link>
         </div>
       </div>
     )
