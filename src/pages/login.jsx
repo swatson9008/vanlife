@@ -20,7 +20,7 @@ export default function Login() {
         console.log(data);
         setError(null);
         localStorage.setItem("loggedin", true)
-        navigate("/host")
+        navigate("/host", { replace: true })
       })
       .catch((error) => {
         console.error(error);
