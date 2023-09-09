@@ -24,7 +24,7 @@ export default function VanDetail() {
       setLoading(true);
       try {
         const data = await getVans();
-        setVanData(data);
+        setVanData(data[0]);
       } catch (err) {
         setError(err);
       } finally {
@@ -34,6 +34,8 @@ export default function VanDetail() {
 
     loadVans();
   }, []);
+
+  console.log(vanData)
 
   if (!vanData) {
     return <p className="loadingText">Loading your vans!</p>;
