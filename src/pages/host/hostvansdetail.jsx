@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, NavLink, Link, Outlet } from "react-router-dom";
-import { getHostVans } from "../../../api";
+import { getVan } from "../../../api";
 
 import "./hostvansdetail.css";
 
@@ -21,7 +21,7 @@ export default function VanHostDetail() {
     async function loadVans() {
       setLoading(true);
       try {
-        const data = await getHostVans(id);
+        const data = await getVan(id);
         setCurrentVan(data);
       } catch (err) {
         setError(err);
