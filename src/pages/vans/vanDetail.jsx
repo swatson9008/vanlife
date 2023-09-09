@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { getVans } from "../../../api";
+import { getVan } from "../../../api";
 import "./vanDetail.css";
 
 export default function VanDetail() {
@@ -24,8 +24,8 @@ export default function VanDetail() {
     async function loadVans() {
       setLoading(true);
       try {
-        const data = await getVans();
-        setVanData(data[id - 1]);
+        const data = await getVan(id);
+        setVanData(data);
       } catch (err) {
         setError(err);
       } finally {
@@ -34,9 +34,7 @@ export default function VanDetail() {
     }
 
     loadVans();
-  }, []);
-
-  console.log(vanData)
+  }, [id]);
 
   if (!vanData) {
     return <p className="loadingText">Loading your vans!</p>;
