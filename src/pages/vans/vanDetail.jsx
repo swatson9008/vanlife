@@ -9,6 +9,7 @@ export default function VanDetail() {
   const [vanData, setVanData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { id } = useParams()
   const search = location.state?.search || "";
   function spliceType(search) {
     const parts = search.split("=");
@@ -23,8 +24,8 @@ export default function VanDetail() {
     async function loadVans() {
       setLoading(true);
       try {
-        const data = await getVans();
-        setVanData(data[0]);
+        const data = await getVans(id);
+        setVanData(data[id - 1]);
       } catch (err) {
         setError(err);
       } finally {
