@@ -22,7 +22,7 @@ export default function VanHostDetail() {
       setLoading(true);
       try {
         const data = await getHostVans(id);
-        setCurrentVan(data[0]);
+        setCurrentVan(data);
       } catch (err) {
         setError(err);
       } finally {
@@ -33,12 +33,12 @@ export default function VanHostDetail() {
     loadVans();
   }, [id]);
 
-  /*useEffect(() => {
+useEffect(() => {
   fetch(`/api/host/vans/${params.id}`)
     .then((response) => response.json())
     .then((data) => setCurrentVan(data.currentVan[0]))
     .catch((error) => console.error("Error fetching data:", error));
-}, [params.id]);*/
+}, [params.id]);
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);

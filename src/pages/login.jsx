@@ -48,6 +48,7 @@ export default function Login() {
       {location.state?.message && (
         <h3 className="logInFirst">{location.state.message}</h3>
       )}
+      <h3>Username and Password is b@b.com / p123</h3>
       <h1>Sign in to your account</h1>
       {error?.message && <h3 className="errorState">{error?.message}</h3>}
       <form onSubmit={handleSubmit} className="loginForm">
